@@ -1,6 +1,6 @@
-# Default Include Recipe Requisites for ssl-vault.
+# Attribute 'overrides' for chef-vault Cookbook.
 #
-# Recipe:: default
+# Attribute:: chef-fault
 # Cookbook:: ssl-vault
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2014 OnBeep, Inc.
@@ -9,6 +9,5 @@
 #
 
 
-include_recipe 'chef-vault'
-include_recipe 'ssl-vault::directories'
-include_recipe 'ssl-vault::files'
+# Pin the chef-vault Gem version:
+default['chef-vault']['version'] = '2.2.0'

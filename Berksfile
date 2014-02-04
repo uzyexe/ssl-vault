@@ -1,9 +1,7 @@
-# -*- ruby -*-
-site :opscode
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+source 'https://api.berkshelf.com'
 
 metadata
-
-group :integration do
-  cookbook "minitest-handler"
-  cookbook "ssl-key-vault-test", :path => "./test/cookbooks/ssl-key-vault-test"
-end
