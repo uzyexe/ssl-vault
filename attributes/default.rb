@@ -9,7 +9,7 @@
 #
 
 
-default['ssl-vault']['certificates'] = {}
+default['ssl-vault']['certificates'] = []
 
 # These are currently Ubuntu-centric:
 default['ssl-vault']['certificate_directory'] = '/etc/ssl/certs'

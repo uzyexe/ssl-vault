@@ -21,20 +21,46 @@ available as a Ruby Gem: `gem install chef-vault`
 
 Attributes
 ---
-- `node['ssl-vault']['certificates']` - List of SSL certificates to install, as
+- `node['ssl-vault']['certificates']` - List of certificates to install, as
   determined by the IDs of Encrypted Data Bag Items. 
   i.e. `['example.com', 'www.example.com']`
   Can be set per Node, so as to limit vectors.
 
+The following Attributes are set or unset by default, and are available for 
+customization by you, the user:
+- `['ssl-vault']['certificate_directory']` - String name of directory into 
+  which to deposit the certificate(s) [and chain file(s)].
+- `['ssl-vault']['private_key_directory']` - String name of directory into 
+  which to deposit the private key(s) [and PEM file(s)].
+- `['ssl-vault']['private_key_file']` - String name of private key file.
+- `['ssl-vault']['data_bag_key_rex']` - Regular Expression of Data Bag Key 
+  ID(s).
+- `['ssl-vault']['data_bag_key_replacement_str']` - String replacement 
+  character for IDs that don't match `data_bag_key_rex`.
+- `['ssl-vault']['private_key_file']` - String name of private key file.
+- `['ssl-vault']['certificate_file']` - String name of certificate file.
+- `['ssl-vault']['pem_file']` - String name of PEM file.
+- `['ssl-vault']['combined_chain_file']` - String name of combined chain file.
+- `['ssl-vault']['combined_chain_pem_file']` - String name of combined chain
+  PEM file.
+
+The following Attribute overrides `['chef-vault']['version']`'s Attribute:
+- `['chef-vault']['version']` - String version of chef-vault Gem to install.
+
 
 Recipes
 ---
-This Cookbook provides three Recipes:
+This Cookbook provides several Recipes:
 
-- `default.rb` - *Use this Recipe*. Includes remaining Recipes and 
+- `default.rb` - **Use this Recipe**. Includes remaining Recipes and 
   `chef-vault` Cookbook.
-- `directories.rb` - Creates SSL certificate and private key directories.
-- `files.rb` - Creates SSL certificate, private key and chain/combined files.
+- `certificate_directory.rb` - Creates certificate (and chain) directory.
+- `certificate_file.rb` - Creates certificate file.
+- `combined_chain_file.rb` - Creates combined chain file.
+- `combined_chain_pem_file.rb` - Creates combined chain PEM file.
+- `pem_file.rb` - Creates PEM file.
+- `private_key_directory.rb` - Creates private key (and PEM) directory.
+- `private_key_file.rb` - Creates private key file.
 
 
 Usage
