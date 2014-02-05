@@ -1,6 +1,6 @@
-# Creates certificate_directory and private_directory for SSL certs.
+# Creates private key directory.
 #
-# Recipe:: directories
+# Recipe:: private_directory
 # Cookbook:: ssl-vault
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2014 OnBeep, Inc.
@@ -9,14 +9,7 @@
 #
 
 
-directory node['ssl-vault']['certificate_directory'] do
-  recursive true
-  owner 'root'
-  group 'root'
-  mode '0755'
-end
-
-directory node['ssl-vault']['private_directory'] do
+directory node['ssl-vault']['private_key_directory'] do
   owner 'root'
   group 'root'
   mode '0700'

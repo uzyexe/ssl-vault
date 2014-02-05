@@ -10,5 +10,10 @@
 
 
 include_recipe 'chef-vault'
-include_recipe 'ssl-vault::directories'
-include_recipe 'ssl-vault::files'
+include_recipe 'ssl-vault::certificate_directory'
+include_recipe 'ssl-vault::private_key_directory'
+include_recipe 'ssl-vault::certificate_file'
+include_recipe 'ssl-vault::private_key_file'
+include_recipe 'ssl-vault::pem_file'
+include_recipe 'ssl-vault::combined_chain_file'
+include_recipe 'ssl-vault::combined_chain_pem_file'
