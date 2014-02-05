@@ -1,9 +1,7 @@
-# -*- mode: ruby -*-
-# vi: set ft=ruby :
+# Attribute 'overrides' for chef-vault Cookbook.
 #
-# Berksfile for ssl-vault Cookbook.
-#
-#
+# Attribute:: chef-fault
+# Cookbook:: ssl-vault
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2014 OnBeep, Inc.
 # License:: The MIT License (MIT)
@@ -11,6 +9,5 @@
 #
 
 
-source 'https://api.berkshelf.com'
-
-metadata
+# Pin the chef-vault Gem version:
+default['chef-vault']['version'] = '2.2.0'
