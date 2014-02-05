@@ -3,7 +3,7 @@
 #
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2014 OnBeep, Inc.
-# License:: MIT
+# License:: The MIT License (MIT)
 # Source:: https://github.com/OnBeep/cookbook-ssl-vault/
 #
 

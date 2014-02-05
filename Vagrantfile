@@ -1,5 +1,14 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+#
+# Vagrantfile for ssl-vault Cookbook.
+#
+#
+# Author:: Greg Albrecht <gba@onbeep.com>
+# Copyright:: Copyright 2014 OnBeep, Inc.
+# License:: The MIT License (MIT)
+# Source:: https://github.com/OnBeep/cookbook-ssl-vault
+#
 
 
 Vagrant.configure('2') do |config|

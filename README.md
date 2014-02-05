@@ -84,19 +84,17 @@ certificate in `/etc/ssl/certs/example.com.cert`.
 
 Author
 ===
-- Author:: Maciej Pasternacki (<maciej@3ofcoins.net>) (ssl-key-vault)
-- Author:: Greg Albrecht (<gba@onbeep.com>) (ssl-vault)
-
+- Author:: Maciej Pasternacki (<maciej@3ofcoins.net>) ([ssl-key-vault](https://github.com/3ofcoins/chef-cookbook-ssl-key-vault))
+- Author:: Greg Albrecht (<gba@onbeep.com>) ([ssl-vault](https://github.com/OnBeep/cookbook-ssl-vault))
 
 Copyright
 ===
 Copyright 2014 OnBeep, Inc.
-
+Portions Copyright (C) 2013 Maciej Pasternacki <maciej@3ofcoins.net>
 
 License
 ===
-MIT TK
-
+The MIT License (MIT)
 
 Source
 ===

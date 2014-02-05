@@ -4,7 +4,7 @@
 # Cookbook:: ssl-vault
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2014 OnBeep, Inc.
-# License:: All rights reserved. Do not redistribute.
+# License:: The MIT License (MIT)
 # Source:: https://github.com/OnBeep/cookbook-ssl-vault
 #
 
