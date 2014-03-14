@@ -15,7 +15,7 @@ include_recipe 'ssl-vault::certificate_directory'
 
 node['ssl-vault']['certificates'].each do |cert_name, cert|
   clean_name = cert_name.gsub(
-    node['ssl-vault']['data_bag_key_rex'], 
+    node['ssl-vault']['data_bag_key_rex'],
     node['ssl-vault']['data_bag_key_replacement_str']
   )
   vault_item = chef_vault_item('ssl-vault', clean_name)
@@ -24,7 +24,7 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
     node['ssl-vault']['certificate_file']
   else
     File.join(
-      node['ssl-vault']['certificate_directory'], 
+      node['ssl-vault']['certificate_directory'],
       [cert_name, 'cert'].join('.')
     )
   end
@@ -35,4 +35,6 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
     group 'root'
     mode '0644'
   end
+
+  node.set['ssl-vault']['certificate'][cert_name]['certificate_file'] = certificate_file
 end
