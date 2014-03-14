@@ -15,7 +15,7 @@ include_recipe 'ssl-vault::certificate_directory'
 
 node['ssl-vault']['certificates'].each do |cert_name, cert|
   clean_name = cert_name.gsub(
-    node['ssl-vault']['data_bag_key_rex'], 
+    node['ssl-vault']['data_bag_key_rex'],
     node['ssl-vault']['data_bag_key_replacement_str']
   )
   vault_item = chef_vault_item('ssl-vault', clean_name)
@@ -31,7 +31,7 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
       )
     end
 
-    template combined_chain_file do 
+    template combined_chain_file do
       source 'combined.cert.erb'
       owner 'root'
       group 'root'
@@ -42,5 +42,6 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
       )
     end
 
+    node.set['ssl-vault']['certificate'][cert_name]['combined_chain_file'] = combined_chain_file
   end
 end
