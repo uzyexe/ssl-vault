@@ -25,13 +25,15 @@ install: $(BUNDLE_CMD) bundle_install
 
 clean: kitchen_destroy
 
+release: bump_version git_push_tags berks_upload
+
 
 # Bundler itself:
 
 $(BUNDLE_CMD):
 	gem install bundler
 
-bundle_install:
+bundle_install: $(BUNDLE_CMD)
 	bundle install
 
 
@@ -52,8 +54,19 @@ kitchen_test:
 foodcritic:
 	$(BUNDLE_EXEC) foodcritic .
 
+bump_version:
+	$(BUNDLE_EXEC) scmversion bump auto --default patch
+
+berks_install: bundle_install
+	$(BUNDLE_EXEC) berks install
+
+berks_upload: berks_install
+	$(BUNDLE_EXEC) berks upload
+
+git_push_tags:
+	git push origin --tags
 
 # knife targets:
 
 publish:
-	knife cookbook site share ssl-vault Networking -o ..
+	knife cookbook site share collectd Networking -o ..
