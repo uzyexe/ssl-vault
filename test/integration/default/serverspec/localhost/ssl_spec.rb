@@ -4,7 +4,7 @@
 # Author:: Greg Albrecht <gba@onbeep.com>
 # Copyright:: Copyright 2013 OnBeep, Inc.
 # License:: All rights reserved. Do not redistribute.
-# Source:: https://github.com/OnBeep/cookbook-ssl-vault
+# Source:: https://github.com/onbeep-cookbooks/ssl-vault
 #
 
 
