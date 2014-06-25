@@ -90,7 +90,7 @@ Given the SSL certificate and key file for `example.com`:
 
 2. Encrypt the new Data Bag Item using the Client's public key:
 
-        knife encrypt create certs --mode client \
+        knife encrypt create ssl-vault --mode client \
             --search 'QUERY' --admins '' \
             --name example_com \
             --json example.com.json
