@@ -90,9 +90,8 @@ Given the SSL certificate and key file for `example.com`:
 
 2. Encrypt the new Data Bag Item using the Client's public key:
 
-        knife encrypt create ssl-vault --mode client \
+        knife vault create ssl-vault example_com --mode client \
             --search 'QUERY' --admins '' \
-            --name example_com \
             --json example.com.json
 
        Either add Chef server's admin API users to the `--admins`, or make
