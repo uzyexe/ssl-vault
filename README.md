@@ -48,6 +48,21 @@ The following Attribute overrides `['chef-vault']['version']`'s Attribute:
 - `['chef-vault']['version']` - String version of chef-vault Gem to install.
 
 
+Data Bag Structure
+---
+
+- The encrypted data bag must be named `ssl-vault`.
+
+- The item name should be the CN of the certificate with the configured
+    replacements applied
+  (default replacement: underscores for dots, `www_example_com`).
+
+- The value should be a json hash with the following keys:
+    - `certificate`: the certificate in pem format
+    - `key`: the key in pem format
+    - `chain_certificates`: array of intermediate ca certificates [optional]
+
+
 Recipes
 ---
 This Cookbook provides several Recipes:
@@ -90,9 +105,8 @@ Given the SSL certificate and key file for `example.com`:
 
 2. Encrypt the new Data Bag Item using the Client's public key:
 
-        knife encrypt create certs --mode client \
+        knife vault create ssl-vault example_com --mode client \
             --search 'QUERY' --admins '' \
-            --name example_com \
             --json example.com.json
 
        Either add Chef server's admin API users to the `--admins`, or make
