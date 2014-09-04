@@ -16,7 +16,7 @@ default['ssl-vault']['certificate_directory'] = '/etc/ssl/certs'
 default['ssl-vault']['private_key_directory'] = '/etc/ssl/private'
 
 # There's limits on Data Bag Key names:
-default['ssl-vault']['data_bag_key_rex'] = /[^\-[:alnum:]_]+/
+default['ssl-vault']['data_bag_key_rex'] = /[^[:alnum:]_-]+/
 default['ssl-vault']['data_bag_key_replacement_str'] = '_'
 
 # You can override the auto-generated file names here:
