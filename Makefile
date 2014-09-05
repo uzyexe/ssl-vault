@@ -18,6 +18,8 @@ BUNDLE_EXEC ?= bundle exec
 
 KNIFE_CONFIG ?= $(HOME)/.chef/knife.rb
 
+COOKBOOK_NAME ?= ssl-vault
+
 
 # Target groups:
 
@@ -72,9 +74,9 @@ git_push_tags:
 # knife targets:
 
 publish: build_path
-	knife cookbook site share ssl-vault Networking -c $(KNIFE_CONFIG) -o build
+	knife cookbook site share $(COOKBOOK_NAME) Networking -c $(KNIFE_CONFIG) -o build
 
 # Work-around for the CI's checkout/workspace path:
 build_path:
 	mkdir -p build
-	rsync --exclude=build/ -avr . build/ssl-vault
+	rsync --exclude=build/ -avr . build/$(COOKBOOK_NAME)
