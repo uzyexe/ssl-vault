@@ -69,4 +69,4 @@ git_push_tags:
 # knife targets:
 
 publish:
-	knife cookbook site share collectd Networking -o ..
+	knife cookbook site share ssl-vault Networking -o ..
