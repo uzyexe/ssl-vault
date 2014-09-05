@@ -16,6 +16,8 @@ BUNDLE_CMD ?= ~/.rbenv/shims/bundle
 
 BUNDLE_EXEC ?= bundle exec
 
+KNIFE_CONFIG ?= $(HOME)/.chef/knife.rb
+
 
 # Target groups:
 
@@ -24,6 +26,7 @@ test: install foodcritic kitchen_test
 install: $(BUNDLE_CMD) bundle_install
 
 clean: kitchen_destroy
+	rm -rf build
 
 release: bump_version git_push_tags berks_upload
 
@@ -68,5 +71,10 @@ git_push_tags:
 
 # knife targets:
 
-publish:
-	knife cookbook site share ssl-vault Networking -o ..
+publish: build_path
+	knife cookbook site share ssl-vault Networking -c $(KNIFE_CONFIG) -o build
+
+# Work-around for the CI's checkout/workspace path:
+build_path:
+	mkdir -p build
+	rsync --exclude=build/ -avr . build/ssl-vault
