@@ -32,8 +32,8 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
   template pem_file do
     source 'pem.erb'
     owner 'root'
-    group 'root'
-    mode '0400'
+    group node['ssl-vault']['cert_group']
+    mode '0440'
     variables(
       :key => vault_item['key'],
       :certificate => vault_item['certificate']

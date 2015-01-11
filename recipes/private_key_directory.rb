@@ -11,6 +11,6 @@
 
 directory node['ssl-vault']['private_key_directory'] do
   owner 'root'
-  group 'root'
-  mode '0700'
+  group node['ssl-vault']['cert_group']
+  mode '0710'
 end
