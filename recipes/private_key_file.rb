@@ -32,8 +32,8 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
   file private_key do
     content vault_item['key']
     owner 'root'
-    group 'root'
-    mode '0400'
+    group node['ssl-vault']['cert_group']
+    mode '0440'
   end
 
   node.set['ssl-vault']['certificate'][cert_name]['private_key_file'] = private_key
