@@ -41,7 +41,7 @@ describe file(private_directory) do
   it { should be_directory }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
-  it { should be_mode 700 }
+  it { should be_mode 710 }
 end
 
 describe file(certificate_file) do
@@ -55,7 +55,7 @@ describe file(key_file) do
   it { should be_file }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
-  it { should be_mode 400 }
+  it { should be_mode 440 }
 end
 
 describe file(combined_chain_file) do
@@ -69,5 +69,5 @@ describe file(combined_chain_pem_file) do
   it { should be_file }
   it { should be_owned_by 'root' }
   it { should be_grouped_into 'root' }
-  it { should be_mode 400 }
+  it { should be_mode 440 }
 end
