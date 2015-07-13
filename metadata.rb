@@ -8,4 +8,4 @@ version IO.read(File.join(File.dirname(__FILE__), 'VERSION')) rescue '1.1.1'
 
 supports 'ubuntu'
 
-depends 'chef-vault', '~> 1.0.4'
+depends 'chef-vault', '>= 1.0.4'
