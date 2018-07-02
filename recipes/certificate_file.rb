@@ -36,5 +36,5 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
     mode '0644'
   end
 
-  node.set['ssl-vault']['certificate'][cert_name]['certificate_file'] = certificate_file
+  node.default['ssl-vault']['certificate'][cert_name]['certificate_file'] = certificate_file
 end

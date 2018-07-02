@@ -40,5 +40,5 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
     )
   end
 
-  node.set['ssl-vault']['certificate'][cert_name]['pem_file'] = pem_file
+  node.default['ssl-vault']['certificate'][cert_name]['pem_file'] = pem_file
 end
