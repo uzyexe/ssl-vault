@@ -42,6 +42,6 @@ node['ssl-vault']['certificates'].each do |cert_name, cert|
       )
     end
 
-    node.set['ssl-vault']['certificate'][cert_name]['combined_chain_file'] = combined_chain_file
+    node.default['ssl-vault']['certificate'][cert_name]['combined_chain_file'] = combined_chain_file
   end
 end
